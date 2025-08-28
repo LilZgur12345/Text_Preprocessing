@@ -21,6 +21,9 @@ from gensim.parsing.preprocessing import remove_stopwords
 from tqdm import tqdm
 from sklearn.ensemble import RandomForestClassifier
 
+# This code performs text classification on wine reviews to categorize them into 
+# three quality levels: 'OK', 'Good', and 'Excellent'
+
 wine_data = pd.read_csv('data/winemagdata130kv2.csv', quoting=2)
 wines = wine_data[["description","points"]]
 wines_subset = wines.sample(7000,random_state=301).reset_index(drop=True)
