@@ -25,8 +25,8 @@ wine_data = pd.read_csv('data/winemagdata130kv2.csv', quoting=2)
 wines = wine_data[["description","points"]]
 wines_subset = wines.sample(7000,random_state=301).reset_index(drop=True)
 
-print(wines_subset.sample(2,random_state=301).reset_index(drop=True))
-print(wines_subset.description[0])
+print("\nSample data:\n", wines_subset.sample(2,random_state=301).reset_index(drop=True))
+print("\nFirst Review:\n", wines_subset.description[0])
 
 # Preprocess text data
 reviews = wines_subset.description.values + ' '+'fakeword'+' '
@@ -87,10 +87,10 @@ Y_pred = classifier.predict(X_test)
 # Confusion Matrix
 spc = ['OK','Good','Excellent']
 cm = confusion_matrix(Y_test,Y_pred)
-print(pd.DataFrame(cm, columns=spc, index=spc))
+print("\nConfusion Matrix:\n", pd.DataFrame(cm, columns=spc, index=spc))
 
 # Accuracy
-print(acc(Y_test,Y_pred))
+print("\nAccuracy:\n", acc(Y_test,Y_pred))
 
 
 
